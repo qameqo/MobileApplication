@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.httprequest">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="G Dragon Autotech"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".FirstActivity"
+            android:label="G Dragon Autotech">
+        </activity>
+        <activity
+            android:name=".IOActivity"
+            android:label="G Dragon Autotech">
+        </activity>
+        <activity
+            android:name=".TechActivity"
+            android:label="G Dragon Autotech">
+        </activity>
+        <activity
+            android:name=".ShowActivity"
+            android:label="G Dragon Autotech">
+        </activity>
+        <activity
+            android:name=".CameraActivity"
+            android:label="G Dragon Autotech">
+        </activity>
+        <activity
+            android:name=".MapActivity"
+            android:label="G Dragon Autotech">
+        </activity>
+
+    </application>
+
+</manifest>
