@@ -153,6 +153,7 @@ public class MapActivity extends AppCompatActivity implements LocationListener {
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(Intent.createChooser(intent
                         , "View map with"));
+
             }
         });
     }
