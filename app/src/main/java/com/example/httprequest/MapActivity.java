@@ -114,6 +114,9 @@ public class MapActivity extends AppCompatActivity implements LocationListener {
                             status = (String) obj.get("status");
                         } catch (JSONException e) {
                             e.printStackTrace();
+
+
+
                         }
                         if (status.equals("insert")) {
                             Toast.makeText(getApplicationContext(), "ลงเบส", Toast.LENGTH_LONG).show();
