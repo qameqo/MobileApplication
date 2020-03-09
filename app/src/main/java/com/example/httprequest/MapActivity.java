@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -14,6 +15,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,11 +32,15 @@ import org.json.JSONObject;
 import java.lang.String;
 import cz.msebera.android.httpclient.Header;
 
+import static com.example.httprequest.MainActivity.APP_PREFER;
+
 public class MapActivity extends AppCompatActivity implements LocationListener {
     private TextView textView5;
     private EditText lat;
     private EditText lon;
+    private  EditText detail;
     private LocationManager locationManager;
+    public static final String USERNAME_PREFER = "usernamePref";
     String locationlat = "";
     String locationlon = "";
     String oo ;
@@ -44,7 +51,8 @@ public class MapActivity extends AppCompatActivity implements LocationListener {
         setContentView(R.layout.activity_map);
 
         textView5 = (TextView) findViewById(R.id.textView5);
-
+        SharedPreferences sharedPrefer = getSharedPreferences(APP_PREFER, Context.MODE_PRIVATE);
+        String sharePrefUsername = sharedPrefer.getString("usernamePref",null);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -72,11 +80,12 @@ public class MapActivity extends AppCompatActivity implements LocationListener {
 
         final double longtitude = location.getLongitude();
         final double lattitude = location.getLatitude();
-        textView5.setText("Latitude: " + lattitude + "\n" + "Longtitude: " + longtitude);
+//        textView5.setText("Latitude: " + lattitude + "\n" + "Longtitude: " + longtitude);
         locationlat = location.getLatitude() + "";
         locationlon = location.getLongitude() + "";
         final EditText lat = (EditText) findViewById(R.id.lat);
         final EditText lon = (EditText) findViewById(R.id.lon);
+        final  EditText detail = (EditText) findViewById(R.id.detail);
         lat.setEnabled(false);
         lon.setEnabled(false);
 
@@ -89,6 +98,7 @@ public class MapActivity extends AppCompatActivity implements LocationListener {
                 RequestParams params = new RequestParams();
                 params.add("lon", oo = lon.getText().toString());
                 params.add("lat", bb = lat.getText().toString());
+                params.add("detail", detail.getText().toString());
                 AsyncHttpClient http = new AsyncHttpClient();
                 http.post("http://gg.harmonicmix.xyz/Map_api/", params, new JsonHttpResponseHandler() {
                     @Override
@@ -202,4 +212,27 @@ public class MapActivity extends AppCompatActivity implements LocationListener {
 //        });
 ////        Toast.makeText(this, "Clicked on Button", Toast.LENGTH_LONG).show();
 //    }
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            // Inflate the menu; this adds items to the action bar if it is present.
+            getMenuInflater().inflate(R.menu.menu_first, menu);
+            return true;
+        }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            SharedPreferences sharePrefer = getSharedPreferences(MainActivity.APP_PREFER,
+                    Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharePrefer.edit();
+            editor.clear();  // ทำการลบข้อมูลทั้งหมดจาก preferences
+            editor.commit();  // ยืนยันการแก้ไข preferences
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }

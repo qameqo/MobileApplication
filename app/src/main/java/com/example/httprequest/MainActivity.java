@@ -1,6 +1,7 @@
 package com.example.httprequest;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.content.Context;
 import android.content.Intent;
@@ -25,7 +26,11 @@ import java.sql.Array;
 import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
-
+    private SharedPreferences sharedPrefer;
+    public static final String APP_PREFER = "appPrefer" ;
+    public static final String USERNAME_PREFER = "usernamePref";
+    public static final String PASSWORD_PREFER = "passwordPref";
+    public static final String ID_PREFER = "idPref";
     private EditText username;
     private EditText password;
     Boolean isSuccess = false;
@@ -65,7 +70,13 @@ public class MainActivity extends AppCompatActivity {
                                  //Toast.makeText(getApplicationContext(), "username password ถูกกต้อง", Toast.LENGTH_LONG).show();
 
                             //editor.putString(EMP_TYPE_PREFER, item.getString("empType"));
-
+                            //Create shared preference to store user data
+                            SharedPreferences.Editor editor = sharedPrefer.edit();
+                            editor.putString(USERNAME_PREFER, username.getText().toString());
+                            editor.putString(PASSWORD_PREFER, password.getText().toString());
+//                            editor.putString(ID_PREFER, password.getText().toString());
+                            //editor.putString(EMP_TYPE_PREFER, item.getString("empType"));
+                            editor.commit();
 
                             Intent intent = new Intent(getApplicationContext(), FirstActivity.class);
                             startActivity(intent);
@@ -99,4 +110,15 @@ public class MainActivity extends AppCompatActivity {
         });
         Toast.makeText(this, "Clicked on Button", Toast.LENGTH_LONG).show();
     }
+    @Override
+    protected void onResume() {
+        sharedPrefer=getSharedPreferences(APP_PREFER, Context.MODE_PRIVATE);
+        if ((sharedPrefer.contains(USERNAME_PREFER)) && sharedPrefer.contains(PASSWORD_PREFER)){
+            Intent i = new Intent(this, FirstActivity.class);
+            startActivity(i);
+            finish();
+        }
+        super.onResume();
+    }
+
 }
