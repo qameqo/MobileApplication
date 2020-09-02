@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageViewo"
             android:layout_width="350dp"
             android:layout_height="350dp"
             android:layout_marginTop="68dp"
@@ -29,7 +29,7 @@
             app:itemTextColor="@color/black"
 
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewo"
             app:layout_constraintVertical_bias="0.892"
             app:menu="@menu/menu_camera_bottom"
             tools:layout_editor_absoluteX="49dp" />

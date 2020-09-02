@@ -1,16 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.httprequest">
+
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- API -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- networkSecurityConfig is also for API. (see below) -->
+
+    <!-- Camera -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- Google Map and GPS Location -->
+<!--    <uses-feature android:name="android.hardware.location.gps" />-->
+<!--    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+<!--    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />-->
+<!--    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="G Dragon Autotech"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <provider
+        android:name="androidx.core.content.FileProvider"
+        android:authorities="${applicationId}.provider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/provider_paths" />
+    </provider>
+        <activity
+            android:name=".NavBarActivity"
+            android:label="@string/title_activity_nav_bar"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,31 +50,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".FirstActivity"
-            android:label="G Dragon Autotech">
-        </activity>
-        <activity
-            android:name=".IOActivity"
-            android:label="G Dragon Autotech">
-        </activity>
-        <activity
-            android:name=".TechActivity"
-            android:label="G Dragon Autotech">
-        </activity>
-        <activity
-            android:name=".ShowActivity"
-            android:label="G Dragon Autotech">
-        </activity>
-        <activity
-            android:name=".CameraActivity"
-            android:label="G Dragon Autotech">
-        </activity>
-        <activity
-            android:name=".MapActivity"
-            android:label="G Dragon Autotech">
-        </activity>
+        <activity android:name=".FirstActivity" ></activity>
+        <activity android:name=".IOActivity" ></activity>
+        <activity android:name=".TechActivity" ></activity>
+        <activity android:name=".CameraActivity" ></activity>
+        <activity android:name=".MapActivity" ></activity>
+        <activity android:name=".RecycleActivity" ></activity>
+        <activity android:name=".NextActivity" ></activity>
+        <activity android:name=".ProfileActivity">
 
+        </activity>
+        <activity android:name=".ViewTech">
+
+
+        </activity>
+        <activity android:name=".ProfileTech"></activity>
+        <activity android:name=".EditProfileT"></activity>
+        <activity android:name=".WorkTech">
+
+
+        </activity>
+        <activity android:name=".ViewTechSuccess"></activity>
+        <activity android:name=".Insurance"></activity>
+        <activity android:name=".WorkIns"></activity>
+        <activity android:name=".ProfileIns"></activity>
+        <activity android:name=".EditProfileI"></activity>
+        <activity android:name=".InsSuccess"></activity>
     </application>
 
 </manifest>

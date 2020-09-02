@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/item_map"
+        android:icon="@android:drawable/ic_dialog_map"
+        android:orderInCategory="100"
+
+        android:title="ตำแหน่งลูกค้า"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_success"
+        android:icon="@android:drawable/ic_menu_save"
+        android:orderInCategory="100"
+        android:title="ยืนยันการซ่อม"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_fail"
+        android:icon="@android:drawable/ic_popup_sync"
+        android:orderInCategory="100"
+        android:title="ขอเปลี่ยนรถ"
+        app:showAsAction="never" />
+</menu>

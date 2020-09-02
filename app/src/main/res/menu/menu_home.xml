@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:id="@+id/action_rent"
+        android:icon="@android:drawable/sym_action_email"
+        android:orderInCategory="100"
+        android:title="รายการแจ้งซ่อม"
+
+        />
+    <item
+        android:id="@+id/action_problem"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:orderInCategory="100"
+
+        android:title="ข้อมูลการซ่อมเสร็จสิ้น" />
+    <item
+        android:id="@+id/action_pro"
+        android:icon="@drawable/user"
+        android:orderInCategory="100"
+
+        android:title="โปรไฟล์" />
+
+
 </menu>
+

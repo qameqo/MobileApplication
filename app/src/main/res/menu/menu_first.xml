@@ -2,11 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_logout"
+        android:id="@+id/action_rent"
+        android:icon="@android:drawable/ic_menu_save"
         android:orderInCategory="100"
-        android:title="logout"
+        android:title="ข้อมูลการเช่า"
 
         />
+    <item
+        android:id="@+id/action_problem"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:orderInCategory="100"
+
+        android:title="ข้อมูลการแจ้งปัญหา" />
+    <item
+        android:id="@+id/action_pro"
+        android:icon="@drawable/user"
+        android:orderInCategory="100"
+
+        android:title="โปรไฟล์" />
 
 
 </menu>

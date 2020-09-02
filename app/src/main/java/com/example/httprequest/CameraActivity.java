@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
@@ -41,7 +40,7 @@ public class CameraActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
-        imgPreview = findViewById(R.id.imageView);
+        imgPreview = findViewById(R.id.imageViewo);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -49,10 +48,10 @@ public class CameraActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
                             //Capture and preview
-                            case R.id.item_camera_capture:
-                                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                                startActivityForResult(intent, CAPTURE_IMAGE);
-                                return true;
+//                            case R.id.item_camera_capture:
+//                                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                                startActivityForResult(intent, CAPTURE_IMAGE);
+//                                return true;
 
                             //Capture, save and preview
                             case R.id.item_camera_upload:
@@ -68,11 +67,11 @@ public class CameraActivity extends AppCompatActivity {
                                 imageIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                                 startActivityForResult(imageIntent, CAPTURE_SAVE_IMAGE);
                                 return true;
-                            case R.id.item_camera_pick:
-                                Intent pickIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                                pickIntent.setType("image/*");
-                                startActivityForResult(pickIntent, PICK_IMAGE);
-                                return true;
+//                            case R.id.item_camera_pick:
+//                                Intent pickIntent = new Intent(Intent.ACTION_GET_CONTENT);
+//                                pickIntent.setType("image/*");
+//                                startActivityForResult(pickIntent, PICK_IMAGE);
+//                                return true;
 //                            case R.id.item_camera_video:
 //                                Intent videoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
 //                                startActivityForResult(videoIntent, CAPTURE_VDO);

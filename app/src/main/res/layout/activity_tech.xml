@@ -12,14 +12,21 @@
         android:orientation="vertical"
         tools:context=".TechActivity">
 
-        <EditText
-            android:id="@+id/tech"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="tech"
-            tools:layout_editor_absoluteX="94dp"
-            tools:layout_editor_absoluteY="235dp" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ree"
+                android:layout_width="407dp"
+                android:layout_height="727dp"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="1dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
